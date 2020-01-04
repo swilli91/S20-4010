@@ -1,0 +1,972 @@
+<style>
+@font-face {
+	font-family: octicons-link;
+	src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+
+.markdown-body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	line-height: 1.5;
+	color: #24292e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 16px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+	color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+	color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+	color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+	color: #24292e;
+}
+
+.markdown-body .pl-ent {
+	color: #22863a;
+}
+
+.markdown-body .pl-k {
+	color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+	color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+	color: #e36209;
+}
+
+.markdown-body .pl-bu {
+	color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+	color: #fafbfc;
+	background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+	color: #fafbfc;
+	background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+	content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+	font-weight: bold;
+	color: #22863a;
+}
+
+.markdown-body .pl-ml {
+	color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+	font-weight: bold;
+	color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+	font-style: italic;
+	color: #24292e;
+}
+
+.markdown-body .pl-mb {
+	font-weight: bold;
+	color: #24292e;
+}
+
+.markdown-body .pl-md {
+	color: #b31d28;
+	background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+	color: #22863a;
+	background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+	color: #e36209;
+	background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+	color: #f6f8fa;
+	background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+	font-weight: bold;
+	color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+	color: #586069;
+}
+
+.markdown-body .pl-sg {
+	color: #959da5;
+}
+
+.markdown-body .pl-corl {
+	text-decoration: underline;
+	color: #032f62;
+}
+
+.markdown-body .octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+.markdown-body a {
+	background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+	outline-width: 0;
+}
+
+.markdown-body strong {
+	font-weight: inherit;
+}
+
+.markdown-body strong {
+	font-weight: bolder;
+}
+
+.markdown-body h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+.markdown-body img {
+	border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+.markdown-body hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+.markdown-body input {
+	font: inherit;
+	margin: 0;
+}
+
+.markdown-body input {
+	overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.markdown-body * {
+	box-sizing: border-box;
+}
+
+.markdown-body input {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.markdown-body a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.markdown-body a:hover {
+	text-decoration: underline;
+}
+
+.markdown-body strong {
+	font-weight: 600;
+}
+
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body hr::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body h1 {
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.markdown-body h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.markdown-body h3 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.markdown-body h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.markdown-body h5 {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.markdown-body h6 {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.markdown-body p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+	margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+	x-list-style-type: lower-roman;
+	  list-style-type: decimal;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+	margin-left: 0;
+}
+
+.markdown-body code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+.markdown-body .octicon {
+	vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+	padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+	padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+	padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+	padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+	padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+	padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+	padding-left: 40px !important;
+}
+
+.markdown-body::before {
+	display: table;
+	content: "";
+}
+
+.markdown-body::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.markdown-body .anchor {
+	float: left;
+	padding-right: 4px;
+	margin-left: -20px;
+	line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 0.25em;
+	padding: 0;
+	margin: 24px 0;
+	background-color: #e1e4e8;
+	border: 0;
+}
+
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: 0.25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	color: #1b1f23;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	visibility: visible;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+	font-size: 1.25em;
+}
+
+.markdown-body h4 {
+	font-size: 1em;
+}
+
+.markdown-body h5 {
+	font-size: 0.875em;
+}
+
+.markdown-body h6 {
+	font-size: 0.85em;
+	color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li {
+	word-wrap: break-all;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body li+li {
+	margin-top: 0.25em;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+}
+
+.markdown-body table th {
+	font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f6f8fa;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	box-sizing: content-box;
+	background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+	padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+	padding-right: 20px;
+}
+
+.markdown-body code {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(27,31,35,0.05);
+	border-radius: 3px;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+}
+
+.markdown-body pre code {
+	display: inline;
+	max-width: auto;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+	color: #005cc5;
+	border-color: #005cc5;
+}
+
+.markdown-body kbd {
+	display: inline-block;
+	padding: 3px 5px;
+	font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	line-height: 10px;
+	color: #444d56;
+	vertical-align: middle;
+	background-color: #fafbfc;
+	border: solid 1px #d1d5da;
+	border-bottom-color: #c6cbd1;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+	position: relative;
+	z-index: 1;
+	border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+	margin: 0 0.2em 0.25em -1.6em;
+	vertical-align: middle;
+}
+
+.markdown-body hr {
+	border-bottom-color: #eee;
+}
+
+</style>
+<style>
+ol {
+    display: block;
+    list-style-type: decimal;
+}
+</style>
+
+<div class="markdown-body">
+
+<style>
+.pagebreak { page-break-before: always; }
+</style>
+
+<h1>Final Study Guide</h1>
+
+<h2>Short Essay Questions will be from:</h2>
+
+<ol>
+<li>Explain a zero knowledge proof to a layman.</li>
+</ol>
+
+<p>Read the section &ldquo;Ali Baba Cave&rdquo; in Wikipedia on Zero Knowledge
+Proof.  <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">https://en.wikipedia.org/wiki/Zero-knowledge_proof</a>.
+Be able to reproduce the cave diagram and write a short explanation of it.</p>
+
+<ol>
+<li>Explain zk-SNARK -  What is the &ldquo;SNARK&rdquo; part of zk-SNARK.</li>
+</ol>
+
+<p>&ldquo;zk&rdquo; is for zero knowledge.</p>
+
+<p>SNARK is (S, N, AR, K)</p>
+
+<ul>
+<li><p>Succinct – the sizes of the hash functions (proofs) are tiny in comparison
+to the length of the actual process required to create them.</p></li>
+
+<li><p>Non-interactive – there is no or only little interaction. For zk-SNARKs,
+there is usually a setup phase and after that a single point of contact between
+the prover and the verifier. Furthermore, SNARKs often have the so-called
+“public verifier” property meaning that anyone can verify without
+interacting anew, which is important for blockchains.</p></li>
+
+<li><p>ARguments – the verifier is only protected against computationally limited
+provers. Provers with enough computational power can create proofs/arguments
+about wrong statements. (Note that with enough computational power, any
+public-key encryption can be broken). This is also called “computational
+soundness,” as opposed to “perfect soundness.”</p></li>
+
+<li><p>of Knowledge – it is not possible for the prover to construct a
+proof/argument without knowing a certain so-called witness. (For example the
+address he wants to spend from, or the path to a
+certain Merkle-tree node).</p></li>
+</ul>
+
+<ol>
+<li>How can blockchain change accounting?</li>
+</ol>
+
+<p>Double entry accounting was first recorded in 1340 in Genoa, Italy.  It has remained
+basically the same since.  We have automated the same system that has been used for
+hundreds of years.  Blockchain provides a mathematically provable way of implementing
+accounting so that the most common form of accounting fraud is impossible to do.
+This is the first real &ldquo;technological&rdquo; advance in accounting in 500+ years.</p>
+
+<ol>
+<li>When was double entry accounting invented?</li>
+</ol>
+
+<p>Double entry accounting was first recorded in 1340 in Genoa Italy.</p>
+
+<ol>
+<li>What is a blockchain? - Why is blockchain important? - What are blockchains used for?</li>
+</ol>
+
+<p>A blockchain is a set of blocks that are written over time, and stored in a publicly
+accessible way.  Each block is cryptographically signed and the signatures are
+used to chain the blocks together.   The blocks are distributed so that every
+computer in the network has a copy of the blocks.   Blockchain is the underlying
+technology behind BitCoin and other Cryptocurrencies.</p>
+
+<ol>
+<li>Why is blockchain important?</li>
+</ol>
+
+<p>Blockchain creates trust between un-trusting parties.  It is a system for verifying
+that data that is entered has not changed over time.   It creates an immutable
+data store that can be verified mathematically.</p>
+
+<ol>
+<li>What is a smart contract?</li>
+</ol>
+
+<p>A smart contract is a program that runs on a blockchain.  It is run by the &ldquo;miners&rdquo;
+that run and maintain the chain.</p>
+
+<ol>
+<li>What is &ldquo;mining&rdquo; in the context of a blockchain system?</li>
+</ol>
+
+<p>Mining is the process of transferring funds from account to account and running of
+smart contracts.  It also implements the digital signatures, (hashes), that provide
+security for a blockchain.</p>
+
+<ol>
+<li>What are the good properties of a blockchain?</li>
+</ol>
+
+<ul>
+<li><p>Immutable data</p></li>
+
+<li><p>Distributed data</p></li>
+
+<li><p>Verifiable data</p></li>
+
+<li><p>Distributed source of trust</p></li>
+</ul>
+
+<ol>
+<li>What are the bad properties of a blockchain?
+<br /></li>
+</ol>
+
+<ul>
+<li><p>Slowest database around.</p></li>
+
+<li><p>Most expensive database around.</p></li>
+</ul>
+
+<ol>
+<li>How do blockchains create trust between non-trusting parties?</li>
+</ol>
+
+<p>The data is distributed and verifiable by all parties.  Trust is no longer a part of
+an institution, it is a mathematically verifiable system.</p>
+
+<ol>
+<li>Why is a blockchain an expensive database?</li>
+</ol>
+
+<p>Ethereum has 12,000 nodes, (computers), that have to all update the storage of any
+data.  It is not cheap to update 12,000 computers every time.</p>
+
+<ol>
+<li>Why are blockchains a so slow?</li>
+</ol>
+
+<p>Ethereum has 12,000 nodes, (computers).  It takes time to update a large set of
+computers.  Every computer has to see every block of data and append every
+verified block to the chain.  Every new block of data has to be verified.
+Mining also takes time.</p>
+
+<ol>
+<li><p>What is Ethereum &ldquo;gas&rdquo; and how does this relates to Turing-Complete?</p></li>
+
+<li><p>Explain the Byzantine Generals problem and how Threshold-ECDSA ( Honey Badger Byzantine Generals ) solves it.</p></li>
+</ol>
+
+<p>Imagine that Byzantine empire has decided to capture a city. There is fierce resistance from within the city. The
+Byzantine army has completely encircled the city. The army has many divisions and each division has a general. The
+generals communicate between each as well as between all lieutenants within their division only through unreliable
+messengers.</p>
+
+<p>All the generals or commanders have to agree upon one of the two plans of action. Exact time to attack all at once or if
+faced by fierce resistance then the time to retreat all at once. If the attack or retreat is without full strength then
+it means only one thing — horrible defeat.</p>
+
+<p>If all generals and/or messengers were trustworthy then it is a very simple solution. However, some of the messengers
+and even a few generals/commanders are traitors. There is a very high chance that they will not follow orders or pass on
+the incorrect message.</p>
+
+<p>In message passing the desired result is that they all either agree or all disagree. Previous implementations (Lamport
+82) of this required a <em>lot</em> of computational work to get the desired result.</p>
+
+<p>BGP is applicable to every distributed network.</p>
+
+<p>t-ECDSA solves this by having in its last stage encrypted data that thru key sharing can only be decrypted when you have
+a threshold number of participants agree on the private key information. At the moment when you have the threshold
+number then you can decrypt the data (the transactions in a blockchain) and the data is finalized and accepted.</p>
+
+<p>Honey Badger sits on top of t-ECDSA.</p>
+
+<h2>Coding:</h2>
+
+<ol>
+<li>Solidity - a simple contract to store the hash of a document and
+a name for the document.</li>
+</ol>
+
+<ul>
+<li><p>When is the contract constructor run?</p></li>
+
+<li><p>Who can call the functions?</p></li>
+
+<li><p>What do the 2 functions do?</p></li>
+</ul>
+
+<h2>Finance:</h2>
+
+<ol>
+<li>What is the Yield Curve?</li>
+</ol>
+
+<p>A yield curve is a line that plots the interest rates, at a set point in time,
+of bonds having equal credit quality but differing maturity dates. The most
+frequently reported yield curve compares the three-month, two-year, five-year,
+10-year and 30-year U.S. Treasury debt. This yield curve is used as a benchmark
+for other debt in the market, such as mortgage rates or bank lending rates, and
+it is used to predict changes in economic output and growth.</p>
+
+<ol>
+<li><p>An inverted or down-sloped yield curve suggests yields on longer-term bonds may
+continue to fall, corresponding to periods of economic recession.</p></li>
+
+<li><p>A Mutual Fund is an investment vehicle made up of a pool of money collected
+from many investors for the purpose of investing in securities such as stocks,
+bonds, money market instruments and other assets. &hellip; A mutual fund&rsquo;s portfolio
+is structured and maintained to match the investment objectives stated in its
+prospectus.</p></li>
+</ol>
+
+<p><br><div class="pagebreak"> </div></p>
+
+<p>##Solidity Code</p>
+
+<pre><code>  1  pragma solidity &gt;=0.4.21 &lt;0.6.0;
+  2  
+  3  import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+  4  
+  5  contract DocumentReg is Ownable {
+  6  
+  7    mapping(bytes32 =&gt; bool) infoSet;
+  8    mapping(bytes32 =&gt; address) infoOwner;
+  9    mapping(bytes32 =&gt; string) infoData;
+ 10    mapping(bytes32 =&gt; string) infoName;
+ 11    uint256 minPayment;
+ 12  
+ 13    event DocumentSet(string, bytes32, string);
+ 14  
+ 15    constructor() public {
+ 16      minPayment = 0;
+ 17    }
+ 18  
+ 19    function setPayment ( uint256 p ) public onlyOwner {
+ 20      minPayment = p;
+ 21    }
+ 22  
+ 23    function newInfo (  string name, bytes32 infoHash, string info )
+		public payable {
+ 24      require(!infoSet[infoHash], &quot;already set, already has owner.&quot;);
+ 25      require(msg.value &gt;= minPayment, &quot;insufficient payment to set data.&quot;);
+ 26      infoSet[infoHash] = true;
+ 27      infoOwner[infoHash] = msg.sender;
+ 28      infoData[infoHash] = info;
+ 29      infoName[infoHash] = name;
+ 30      emit DocumentSet(name, infoHash, info);
+ 31    }
+ 32  
+ 33    function updateInfo (  bytes32 infoHash, string info )
+		public payable {
+ 34      require(infoOwner[infoHash] == msg.sender, &quot;not correct owner of this data.&quot;);
+ 35      require(msg.value &gt;= minPayment, &quot;insufficient payment to update data.&quot;);
+ 36      string storage name;
+ 37      name = infoName[infoHash];
+ 38      infoData[infoHash] = info;
+ 39      emit DocumentSet(name, infoHash, info);
+ 40    }
+ 41  
+ 42  }
+</code></pre>
+
+</div>
+
