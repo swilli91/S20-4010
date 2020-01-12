@@ -1,7 +1,7 @@
 
-# COSC Spring 2020 - 4010 or 5010 Special Topics - Blockchian
+## COSC Spring 2020 - 4010 or 5010 Special Topics - Blockchian
 
-<center><div style="font-size:24pt;font-weight:bold">
+<center><div style="font-size:22pt;font-weight:bold">
 
 *UNIVERSITY OF WYOMING*
 
@@ -28,7 +28,7 @@ I will hold office hours from 9:15AM to 11:00AM on Monday, Wednesday and Friday 
 ## Required texts
 
 Textbook: There are no good books on Ethereum/Solidity. Solidity has moved from version 4.28 to 5.17 in the past year.
-All of the books are out of date. So.... I will include links in assignments that you are expected to read. The text
+All of the books are out of date. So, I will include links in assignments that you are expected to read. The text
 book for Go is a free online PDF: https://www.golang-book.com/books/intro We will also be using IOHK’s BlockChian. It
 is programmed in Haskell.
 
@@ -46,7 +46,7 @@ points per assignment.
 
 ## Final Examination
 
-Friday, May 17th from 10:15 AM to 12:15 PM -- xyzzy - TODO
+Wednesday May, 13 at 1:15pm to 3:15pm.  Location to be determined.
 
 ## Grading Scale:
 
