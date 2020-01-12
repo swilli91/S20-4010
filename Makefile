@@ -1,7 +1,12 @@
 
-all: Midterm-In-Class.html Final-Study-Guide.html Final.html S20-Study-Guide.html
+all: syllabus.html Midterm-In-Class.html Final-Study-Guide.html Final.html S20-Study-Guide.html
 
 FR=./Lectures/01
+
+syllabus.html: syllabus.md
+	markdown-cli --input=./syllabus.md --output=syllabus.html
+	cat ${FR}/css/pre ${FR}/css/markdown.css ${FR}/css/post ./md.css ${FR}/css/hpre syllabus.html ${FR}/css/hpost >/tmp/syllabus.html
+	mv /tmp/syllabus.html ./syllabus.html
 
 Midterm-In-Class.html: Midterm-In-Class.md
 	markdown-cli --input=./Midterm-In-Class.md --output=Midterm-In-Class.html
