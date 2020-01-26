@@ -46,7 +46,7 @@ points per assignment.
 
 ## Final Examination
 
-Wednesday May, 13 at 1:15pm to 3:15pm.  Location to be determined.
+Wednesday May, 13 at 1:15pm to 3:15pm.  Location to be determined, probably in our classroom.
 
 ## Grading Scale:
 
@@ -73,7 +73,7 @@ class.
 
 1.  What is Blockchain / Bitcoin and Why it is Important.
 In 2009 a person or group of people named Satoshi Nakamoto published “Bitcoin: A Peer-to-Peer Electronic Cash
-System”. … The Bitcoin design was revolutionary — it elegantly tied cryptography, game theory, and economics
+System”.  The Bitcoin design was revolutionary — it elegantly tied cryptography, game theory, and economics
 into a trustless solution to the double-spend problem, and introduced the world to the first “chain of blocks,” a
 censorship-resistant public ledger protected by proof-of-work.
 This is a big deal. Unlike traditional payments, Bitcoin transactions don’t rely on a trusted third-party. Anyone can
@@ -117,7 +117,7 @@ This is an approximate schedule.  Updates will be noted in class.
 | Fri&nbsp;Feb&nbsp;07,&nbsp;2020 | 06 | Economics of blockchain.  Cheat Grass, Co2, Land Titles.                   |
 |                                 |    | Homework 2 Due - Hashes / Merkel Trees (very simple Merkel)                |
 |                                 |    |                                                                            |
-| Mon&nbsp;Feb&nbsp;10,&nbsp;2020 | 07 | More on Go complicated stuff; Map synchronization, Go core/panic,          |
+| Mon&nbsp;Feb&nbsp;10,&nbsp;2020 | 07 | More on Go complicated stuff; Map synchronization, Go core/panic.          |
 |                                 |    | Go interfaces, Go weaknesses.                                              |
 | Wed&nbsp;Feb&nbsp;12,&nbsp;2020 | 08 | Finance: Creating personal wealth, Purposes of a business, Terms and 		|
 |                                 |    | definitions.                                                               |
@@ -139,7 +139,7 @@ This is an approximate schedule.  Updates will be noted in class.
 |                                 |    |                                                                            |
 | Mon&nbsp;Mar&nbsp;02,&nbsp;2020 | 16 | Finance and Terms, Accounting(history)- Double Entry Book keeping,         |
 |                                 |    | Cooking the books.                                                         |
-| Wed&nbsp;Mar&nbsp;04,&nbsp;2020 | 17 | Wallets, Analogy for what blockchain is, Client server how to implement    |
+| Wed&nbsp;Mar&nbsp;04,&nbsp;2020 | 17 | Wallets, Analogy for what blockchain is, Client-Server how to implement    |
 | Fri&nbsp;Mar&nbsp;06,&nbsp;2020 | 18 | Standard contracts, Go and Ethereum, ERC-20, Events, interoperability.     |
 |                                 |    |                                                                            |
 | Mon&nbsp;Mar&nbsp;09,&nbsp;2020 | 19 | Midterm Exam (This date may have to change)                                |
