@@ -34,14 +34,15 @@ For Windows there is a `.msi` installer that is very good.  It will automaticall
 go into `C:\go\` and setup your permissions.  You can choose a different path for the install.
 Follow the instructions on the download site for Windows.
 
-Install at least version 1.11.5 of the language.   On mac you download .pkg and click on it.
+Install at least version 1.13.6 of the language.   On mac you download .pkg and click on it.
 On windows the .msi and run it (double click).  On Linux...  Follow the instructions on the
 download page for your flavor of Linux.
 
 You will need to use an editor.  I don't usually use an IDE.  I do use vi (vim).  Pick
 a text editor that you like.
 
-If you need to create a portable USB drive with Go and VIM on it see me after class.
+If you need to create a portable USB drive with Go and VIM on it see me after class.  This will
+apply to the people using the UW computers.  I am working on it.
 
 You will need a github.com account. Go and create one if you do not already have one.
 A free account will work.
@@ -51,7 +52,7 @@ A free account will work.
 Submit:
 
 1. run `go version` at the command line and capture the output.   Submit a 1 line file with the output
-in it.  You can cut paste or pipe the output to a file.  You should see a version around `go1.11` or `go1.11.5`.
+in it.  You can cut paste or pipe the output to a file.  You should see a version around `go1.13` or `go1.13.6`.
 
 
 
@@ -117,6 +118,13 @@ or on Windows
 If you get an error about access an un-exported function, then you failed to capitalize the first
 letter in a method call. Capital letters tell Go that the function is exported.  `fmt.printf`
 will cause this error.  `fmt.Printf` will work.
+
+
+You can run a go program with just `go run`.
+
+```SH
+	go run hello-world.go
+```
 
 Submit:
 
@@ -717,30 +725,47 @@ I have supplied the fiels `file1`, `file2.txt`, and `file3`.
 Process as many files as are on the command line.
 
 
-So start out with an exampel - that just calculates the hash of the string `"bob"`:
+So start out with an example - that just calculates the hash of the string `"bob"`:
 
 ```Go
-	package main
+package main
 
-	import (
-		"fmt"
+import (
+	"flag"
+	"fmt"
+	"io/ioutil"
+	"os"
 
-		"github.com/ethereum/go-ethereum/crypto/sha3" // you can't click on this link in the HTML of this code.
-	)
+	"golang.org/x/crypto/sha3"
+)
 
-	func main() {
-		fmt.Printf("%x\n", Keccak256([]byte("bob"))) // type cast from string, "bob", to slice of byte.
+func main() {
+	flag.Parse()
+
+	fns := flag.Args()
+	if len(fns) == 0 {
+		fmt.Fprintf(os.Stderr, "Usage: ./ksum [file ...]\n")
+		os.Exit(1)
 	}
 
-	// Keccak256 calculates and returns the Keccak256 hash of the input data.
-	// From: https://github.com/ethereum/go-ethereum/blob/master/crypto/crypto.go lines 44...51.
-	func Keccak256(data ...[]byte) []byte {
-		d := sha3.NewKeccak256()
-		for _, b := range data {
-			d.Write(b)
+	for _, fn := range fns {
+		data, err := ioutil.ReadFile(fn)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Unable to read %s, error: %s\n", fn, err)
+			continue
 		}
-		return d.Sum(nil)
+		fmt.Printf("%s %x\n", fn, Keccak256(data))
 	}
+}
+
+// Keccak256 calculates and returns the Keccak256 hash of the input data.
+func Keccak256(data ...[]byte) []byte {
+	d := sha3.NewLegacyKeccak256()
+	for _, b := range data {
+		d.Write(b)
+	}
+	return d.Sum(nil)
+}
 
 ```
 
@@ -750,8 +775,8 @@ After you create/copy this code into a file, in a directory called ksum, you wil
 	go get
 ```
 
-to have Go pull in `github.com/ethereum/go-ethereum` package and all it's sub
-packages including: `github.com/ethereum/go-ethereum/crypto/sha3`.  If you do not do the `go get` you 
+to have Go pull in `github.org/x/crypto/sha3` package.
+If you do not do the `go get` you 
 will get an error `cannot find package...`.  The `go get` will pull in the dependencies for this
 from github so it will take will take a little bit.
 

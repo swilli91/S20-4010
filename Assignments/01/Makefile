@@ -20,6 +20,6 @@ test02:
 	diff ,b ref/echo1.out
 
 clean:
-	rm ,a ,b echo1/echo1 hello-world/hello-world
+	rm ,a ,b echo1/echo1 hello-world/hello-world ksum/ksum
 
 

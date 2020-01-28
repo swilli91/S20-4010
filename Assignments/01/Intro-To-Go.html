@@ -743,14 +743,15 @@ to keep an old version of the compiler around.</p>
 go into <code>C:\go\</code> and setup your permissions.  You can choose a different path for the install.
 Follow the instructions on the download site for Windows.</p>
 
-<p>Install at least version 1.11.5 of the language.   On mac you download .pkg and click on it.
+<p>Install at least version 1.13.6 of the language.   On mac you download .pkg and click on it.
 On windows the .msi and run it (double click).  On Linux&hellip;  Follow the instructions on the
 download page for your flavor of Linux.</p>
 
 <p>You will need to use an editor.  I don&rsquo;t usually use an IDE.  I do use vi (vim).  Pick
 a text editor that you like.</p>
 
-<p>If you need to create a portable USB drive with Go and VIM on it see me after class.</p>
+<p>If you need to create a portable USB drive with Go and VIM on it see me after class.  This will
+apply to the people using the UW computers.  I am working on it.</p>
 
 <p>You will need a github.com account. Go and create one if you do not already have one.
 A free account will work.</p>
@@ -759,7 +760,7 @@ A free account will work.</p>
 
 <ol>
 <li>run <code>go version</code> at the command line and capture the output.   Submit a 1 line file with the output
-in it.  You can cut paste or pipe the output to a file.  You should see a version around <code>go1.11</code> or <code>go1.11.5</code>.</li>
+in it.  You can cut paste or pipe the output to a file.  You should see a version around <code>go1.13</code> or <code>go1.13.6</code>.</li>
 </ol>
 
 <h2>(1.2) Verify that you can compile and run (Hello-World.go) (5pts)</h2>
@@ -817,6 +818,11 @@ also on the Go download page.  Put it into a file called <code>main.go</code>.</
 <p>If you get an error about access an un-exported function, then you failed to capitalize the first
 letter in a method call. Capital letters tell Go that the function is exported.  <code>fmt.printf</code>
 will cause this error.  <code>fmt.Printf</code> will work.</p>
+
+<p>You can run a go program with just <code>go run</code>.</p>
+
+<pre><code class="language-SH">	go run hello-world.go
+</code></pre>
 
 <p>Submit:</p>
 
@@ -1396,29 +1402,46 @@ read more than one file and print out the results.</p>
 
 <p>Process as many files as are on the command line.</p>
 
-<p>So start out with an exampel - that just calculates the hash of the string <code>&quot;bob&quot;</code>:</p>
+<p>So start out with an example - that just calculates the hash of the string <code>&quot;bob&quot;</code>:</p>
 
-<pre><code class="language-Go">	package main
+<pre><code class="language-Go">package main
 
-	import (
-		&quot;fmt&quot;
+import (
+	&quot;flag&quot;
+	&quot;fmt&quot;
+	&quot;io/ioutil&quot;
+	&quot;os&quot;
 
-		&quot;github.com/ethereum/go-ethereum/crypto/sha3&quot; // you can't click on this link in the HTML of this code.
-	)
+	&quot;golang.org/x/crypto/sha3&quot;
+)
 
-	func main() {
-		fmt.Printf(&quot;%x\n&quot;, Keccak256([]byte(&quot;bob&quot;))) // type cast from string, &quot;bob&quot;, to slice of byte.
+func main() {
+	flag.Parse()
+
+	fns := flag.Args()
+	if len(fns) == 0 {
+		fmt.Fprintf(os.Stderr, &quot;Usage: ./ksum [file ...]\n&quot;)
+		os.Exit(1)
 	}
 
-	// Keccak256 calculates and returns the Keccak256 hash of the input data.
-	// From: https://github.com/ethereum/go-ethereum/blob/master/crypto/crypto.go lines 44...51.
-	func Keccak256(data ...[]byte) []byte {
-		d := sha3.NewKeccak256()
-		for _, b := range data {
-			d.Write(b)
+	for _, fn := range fns {
+		data, err := ioutil.ReadFile(fn)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, &quot;Unable to read %s, error: %s\n&quot;, fn, err)
+			continue
 		}
-		return d.Sum(nil)
+		fmt.Printf(&quot;%s %x\n&quot;, fn, Keccak256(data))
 	}
+}
+
+// Keccak256 calculates and returns the Keccak256 hash of the input data.
+func Keccak256(data ...[]byte) []byte {
+	d := sha3.NewLegacyKeccak256()
+	for _, b := range data {
+		d.Write(b)
+	}
+	return d.Sum(nil)
+}
 
 </code></pre>
 
@@ -1427,8 +1450,8 @@ read more than one file and print out the results.</p>
 <pre><code>	go get
 </code></pre>
 
-<p>to have Go pull in <code>github.com/ethereum/go-ethereum</code> package and all it&rsquo;s sub
-packages including: <code>github.com/ethereum/go-ethereum/crypto/sha3</code>.  If you do not do the <code>go get</code> you
+<p>to have Go pull in <code>github.org/x/crypto/sha3</code> package.
+If you do not do the <code>go get</code> you
 will get an error <code>cannot find package...</code>.  The <code>go get</code> will pull in the dependencies for this
 from github so it will take will take a little bit.</p>
 
