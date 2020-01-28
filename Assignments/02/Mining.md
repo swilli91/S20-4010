@@ -145,7 +145,7 @@ Code that I have supplied you with:
 |------------------:|------------------------------------------------------------------|
 | block             | Operations on blocks like initialization and searilization.      |
 |                   | Look in the `.../a/02/block/block.go` file.          |
-| hash              | Convience functions to work with keccak256 hash.                 |
+| hash              | Convenience functions to work with keccak256 hash.                 |
 |                   | Look in the `.../a/02/hash/hash.go` file.            |
 
 `go` Library functions you will need to use:
