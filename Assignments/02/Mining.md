@@ -1,6 +1,21 @@
 Part 1 - What is Mining? (100pts)
 =============================================================
 
+```
+Part 1 directories:
+	block
+	cli
+	config
+	hash
+	index
+	lib
+	main
+	mine
+
+Part 2 - also uses ./hash
+	merkle
+```
+
 In this assignment you will implement proof-of-work mining.  Before we get to the details on mining 
 let's start at the beginning of our blockchain.
 
@@ -53,7 +68,7 @@ Then from the `~/go/src/github.com/Univ-Wyo-Education/S20-4010` directory
 change directory into assignment 2.
 
 ```sh
-	cd a/02
+	cd Assignmetnts/02
 ```
 
 Our starting code is in this directory.  Specifically we will want to
