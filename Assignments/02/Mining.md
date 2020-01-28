@@ -46,7 +46,7 @@ download`. Click on that. Cut and paste the URL.)
 	mkdir Univ-Wyo-Education
 	cd Univ-Wyo-Education
 	git clone https://github.com/Univ-Wyo-Education/S20-4010.git
-	cd S20-4010.git
+	cd S20-4010
 ```
 
 If you have already cloned the S20-4010 set of information you will need to update it to current.
