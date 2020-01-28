@@ -110,21 +110,21 @@ This is an approximate schedule.  Updates will be noted in class.
 |                                 |    | My background, an introduction to Go, Solidity and Contracts.              |
 | Wed&nbsp;Jan&nbsp;29,&nbsp;2020 | 02 | More on Go, Overview of the blockchain.                                    |
 | Fri&nbsp;Jan&nbsp;31,&nbsp;2020 | 03 | What is a hash, What are hashes used for, Types of hashes.                 |
-|                                 |    | Homework 1 Due - Go Hello World.                                           |
 |                                 |    |                                                                            |
 | Mon&nbsp;Feb&nbsp;03,&nbsp;2020 | 04 | Mining walk through.                                                       |
+|                                 |    | Homework 1 Due - Go Hello World and 9 other chunks.  100pts.               |
 | Wed&nbsp;Feb&nbsp;05,&nbsp;2020 | 05 | Merkel Trees, Proof of work, Proof of stake.                               |
 | Fri&nbsp;Feb&nbsp;07,&nbsp;2020 | 06 | Economics of blockchain.  Cheat Grass, Co2, Land Titles.                   |
-|                                 |    | Homework 2 Due - Hashes / Merkel Trees (very simple Merkel)                |
 |                                 |    |                                                                            |
 | Mon&nbsp;Feb&nbsp;10,&nbsp;2020 | 07 | More on Go complicated stuff; Map synchronization, Go core/panic.          |
 |                                 |    | Go interfaces, Go weaknesses.                                              |
+|                                 |    | Homework 2 Due - Hashes / Merkel Trees (very simple Merkel)                |
 | Wed&nbsp;Feb&nbsp;12,&nbsp;2020 | 08 | Finance: Creating personal wealth, Purposes of a business, Terms and 		|
 |                                 |    | definitions.                                                               |
 | Fri&nbsp;Feb&nbsp;14,&nbsp;2020 | 09 | Transactions / Data Storage                                                |
-|                                 |    | Homework 3 Due - Transactions.                                             |                                     
 |                                 |    |                                                                            |
 | Mon&nbsp;Feb&nbsp;17,&nbsp;2020 | 10 | Public Private Keys                                                        |
+|                                 |    | Homework 3 Due - Transactions.                                             |                                     
 | Wed&nbsp;Feb&nbsp;19,&nbsp;2020 | 11 | ECDSA & RSA encryption, Quantum Computers and NTRU.                        |
 | Fri&nbsp;Feb&nbsp;21,&nbsp;2020 | 12 | Digital Security.                                                          |
 |                                 |    | Homework 4 Due - Wallet.                                                   |
