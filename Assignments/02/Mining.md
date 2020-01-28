@@ -210,7 +210,7 @@ Run `go vet` on your code.  Fix any errors.  Test again
 See the section at the end.
 
 
-Part 2 - Merkel Trees (100pts)
+Part 2 - Merkle Trees (100pts)
 =============================================================
 
 
