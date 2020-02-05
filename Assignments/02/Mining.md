@@ -159,23 +159,42 @@ Code that I have supplied you with:
 
 In the file `./mine/mine.go`, implement the function MineBlock.
 
-1. Use an infinite loop to:
-  1. Serialize the data from the block for hashing, Call `block.SerializeForSeal` to do this.
-  2. Calculate the hash of the data, Call `hash.HashOf` to do this. This is the slow part.  What would happen if we
-     replaced the software with a hash calculator on a graphics card where you could run 4096 hahes at once?
-     What would happen if we replaced the graphics card with an ASIC - so you had dedicated hardware to do
-     the hash and you could run 4 billion hashes a second?
-  3. Convert the hash (it is []byte) to a hex string.  Use the `hex.EncodeToString` standard go library function.
-  4. `fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\r", theHashAsAString, bk.Nonce)`
-  5. See if the first 4 characters of the hash are 0's. - if so we have met the work criteria.
-     In go this is `if theHashAsAString[0:4] == "0000" {`.  This is create a slice, 4 long from
-     character 0 with length of 4, then compare that to the string `"0000"`.
-   - Set the block's "Seal" to the hash
-   - `fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\n", theHashAsAString, bk.Nonce)`
-   - return
-  5. Increment the Nonce in the block, and...
-  6. Back to the top of the loop for another try at finding a seal for this block.
-
+```
+	// Pseudo-Code:
+	//
+	// 1. Use an infinite loop to:
+	//   1. Serialize the data from the block for hashing, Call
+	//     `block.SearilizeForSeal` to do this.
+	//   2. Calculate the hash of the data, Call `hash.HashOf` to do this.
+	//      This is the slow part.  What would happen if we replaced the
+	//      software with a hash calculator on a graphics card where you
+	//      could run 4096 - 10240 hahes at once?  What would happen if we
+	//      replaced the graphics card with an ASIC - so you had dedicated
+	//		hardware to do the hash and you could run 4 billion hashes a
+	//      second?
+	//   3. Convert the hash (it is []byte) to a hex string.  Use the
+	//      `hex.EncodeToString` standard go library function.
+	//   4. `fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\r",
+	//      theHashAsAString, bk.Nonce)` `\r` will overwrite the same line
+	//      instead of advancing to the next. (You may want to skip on
+	//      some windows systems)
+	//   5. See if the first 4 characters of the hash are 0's. - if so we
+	//      have met the work criteria.  In go this is
+	//     `if theHashAsAString[0:n] == difficulty ("0000" for example) {`.
+	//      This is create a slice, 4 long from character 0 with length of 4,
+	//      then compare that to the string `difficulty`.
+	//    -   Set the block's "Seal" to the hash
+	//    -   `fmt.Printf("((Mining)) Hash for Block [%s] nonce [%8d]\n",
+	//        theHashAsAString, bk.Nonce)` `\n` will overwrite the same
+	//        *and then advance* to the next line.
+	//    -   return
+	//   5. Increment the Nonce in the block, and...
+	//   6. Back to the top of the loop for another try at finding a seal
+	//      for this block.
+	//
+	// For the genesis block, when I do this it requires 54586 trips through
+	// the loop to calculate the proof of work (PoW).
+```
 
 In the `./mine` directory there is a test.  Implement the MineBlock function.  Run the
 test.  Remove the `InstructorImplementationMineBlock(bk) // TODO: Replace this line with your code.`
@@ -191,7 +210,7 @@ My output when running the test.
 	((Mining)) Hash for Block [0000adc29a80f1f0df08c8687c013d179050f5d1b449599e4d1437e4fad23525] nonce [   46734]
 	((Mining)) Hash for Block [000013ce557332aaa68abe3b7bf1be856743a03689a802606a732e81713bb78c] nonce [    4527]
 	PASS
-	ok  	github.com/Univ-Wyo-Education/S20-4010/a/02/mine	0.914s
+	ok  	github.com/Univ-Wyo-Education/S20-4010/a/02/mine	0.237s
 ```
 
 The grader has a somewhat more comprehensive automated test to run with this code (There is one more block
@@ -202,8 +221,6 @@ to mine).   You get all the points for the assignment when it passes the test.
 Use the go formatter on your code.  Either `goimports -w *.go` or setup your editor to run
 `goimpors` every time you save a go file.  I have this setup in `vim`.  Other editors can
 do this also.
-
-Run `go vet` on your code.  Fix any errors.  Test again
 
 ### Submit
 
