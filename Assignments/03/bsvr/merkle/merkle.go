@@ -10,5 +10,6 @@ import (
 */
 
 func MerkleHash(data [][]byte) []byte {
-	return InstructorMerkleHash(data) // TODO: Replace this line with your code.
+	// return InstructorMerkleHash(data) // TODO: Replace this line with your code.
+	return []byte{0x1} // remove this line - repalce with your own return
 }
