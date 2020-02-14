@@ -12,7 +12,7 @@ all: Transactions.html handout-09-17.html handout-p2.html
 # $ cd markdown-cli
 # $ go build
 #
-FR=../../l/01
+FR=../../Lectures/01
 
 Transactions.html: Transactions.md
 	markdown-cli --input=./Transactions.md --output=Transactions.html

@@ -1,6 +1,7 @@
 Transactions
 -------------------------------
 
+
 In bitcoin and Ethereum you can send funds from one account to another.
 This activity is captured in a transaction.
 

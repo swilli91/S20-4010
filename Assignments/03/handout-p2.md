@@ -1,5 +1,6 @@
 # handout-2.md
 
+
 # Data types in Code
 
 from block/block.go:
