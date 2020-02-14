@@ -797,8 +797,12 @@ Report the error if it occurs.  You will not need a type cast to pass the byte s
 
 Submit:
 
-1. Test your code with [file1](file1), [file2.txt](file2.txt), [file3](file3) . Save the output.  Submit
-the output with the hashes.   Test your code with some other files of your choice.   Submit the output from
+
+1. Test your code with file1, file2.txt, file3 (download from the following locations):
+[https://github.com/Univ-Wyo-Education/S20-4010/tree/master/Assignments/01/file1](https://github.com/Univ-Wyo-Education/S20-4010/tree/master/Assignments/01/file1),
+[https://github.com/Univ-Wyo-Education/S20-4010/tree/master/Assignments/01/file2.txt](https://github.com/Univ-Wyo-Education/S20-4010/tree/master/Assignments/01/file2.txt),
+[https://github.com/Univ-Wyo-Education/S20-4010/tree/master/Assignments/01/file3](https://github.com/Univ-Wyo-Education/S20-4010/tree/master/Assignments/01/file3) . Save
+the output.  Submit the output with the hashes.   Test your code with some other files of your choice.   Submit the output from
 that with the files that you used.
 2. your code for doing this (remember your name in the program)
 
