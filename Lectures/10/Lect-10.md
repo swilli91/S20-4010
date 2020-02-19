@@ -9,7 +9,10 @@ News
 2. Accounting in space
 3. China is Pushing Toward Global Blockchain Dominance - Wired [https://www.wired.com/story/opinion-china-is-pushing-toward-global-blockchain-dominance/](https://www.wired.com/story/opinion-china-is-pushing-toward-global-blockchain-dominance/)
 
+Reading
+======
 
+Consensus Algorithms, PoW, PoS and better ones: [https://medium.com/coinbundle/consensus-algorithms-dfa4f355259d](https://medium.com/coinbundle/consensus-algorithms-dfa4f355259d)
 
 Economics of Wealth
 ======================
