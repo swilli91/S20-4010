@@ -1,3 +1,7 @@
+# Homework 3 - transactions
+
+Due Around end of Month ( Mar 4th maybe? )
+
 Transactions
 -------------------------------
 
