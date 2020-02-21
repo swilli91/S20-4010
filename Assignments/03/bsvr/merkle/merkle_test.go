@@ -62,7 +62,9 @@ func TestMerkleHash(t *testing.T) {
 		if hStr != test.expectedHash {
 			t.Errorf("Test %d, expected %s got %s\n", ii, test.expectedHash, hStr)
 		} else {
-			fmt.Printf("%sPass on %d%s\n", MiscLib.ColorGreen, ii, MiscLib.ColorReset)
+			if false {
+				fmt.Printf("%sPass on %d%s\n", MiscLib.ColorGreen, ii, MiscLib.ColorReset)
+			}
 		}
 	}
 
