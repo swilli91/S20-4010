@@ -205,7 +205,7 @@ func (cc *CLI) SendFundsTransaction(
 	// TODO - validate that message - after it is parse, has from/to/amount - and
 	// that the hash of messageHash is 'message'.  Assignment 5.
 
-	// --- Homework Section for Assignment 4 ----------------------------
+	// --- Homework Section for Assignment 3 ----------------------------
 	// Replace the line below with code that performs a transaction
 	return cc.InstructorSendFundsTransaction(from, sig, messageHash, message, to, amount, memo)
 
