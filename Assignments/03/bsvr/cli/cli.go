@@ -207,19 +207,24 @@ func (cc *CLI) SendFundsTransaction(
 
 	// --- Homework Section for Assignment 3 ----------------------------
 	// Replace the line below with code that performs a transaction
-	return cc.InstructorSendFundsTransaction(from, sig, messageHash, message, to, amount, memo)
+	/* return cc.SendFundsTransaction(from, sig, messageHash, message, to, amount, memo) */
 
 	//
 	// Pseudo Code:
 	// 1. Calcualte the total value of the account 'from'.  Call this 'tot'.
 	//    You can do this by calling `cc.GetTotalValueForAccount(from)`.
+	tot := cc.GetTotalValueForAccount(from)
 	// 2. If the total, `tot` is less than the amount that is to be transfered,
 	//	  `amount` then fail.  Return an error "Insufficient funds".  The person
 	//    is trying to bounce a check.
+	if tot < amount {
+		return nil, fmt.Errorf("Insufficient funds")
+	}
 	// 3. Get the list of output tranactions.
 	//    Look in the file .../transaactions/tx.go for the TxOutputType.  These
 	//	  need to be collected so that you.
 	//    Call this 'oldOutputs'.
+	oldOutputs := cc.GetNonZeroForAccount(from)
 	// 4. Find the set of values that are pointed to in the index.  These are the
 	//    values for the 'from' account.  Delete this from the index.  These are the
 	// 	  values that have been spent.
@@ -230,6 +235,7 @@ func (cc *CLI) SendFundsTransaction(
 	//		"delete(cc.BlockIndex.FindValue.AddrIndex, fromConvertedToString)
 	//		You may have to check that the key exists in the "AddrIndex"
 	//		first ))))
+
 	// 5. Create a new empty transaction.  Call `transctions.NewEmptyTx` to create.
 	//	  Pass in the 'memo' and the 'from' for this tranaction.
 	// 6. Convert the 'oldOutputs' into a set of new inputs.  The type is
@@ -243,6 +249,7 @@ func (cc *CLI) SendFundsTransaction(
 	//    change.  Create a 2nd tranaction with the change.  Append to the tranaction the
 	//    TxOutputType.
 	// 10. Return
+	return nil, nil
 	//
 }
 
