@@ -706,158 +706,73 @@ ol {
 
 <div class="markdown-body">
 
-<h1>Homework 3 - transactions</h1>
+<h1>Lecture on Mining / Consensus</h1>
 
-<p>Due Mar 4th.</p>
+<h2>Intro</h2>
 
-<h2>Transactions</h2>
+<p>Steve is Stuck in Cheyenne - so &hellip;  I am stepping in for this.
+My background is on the technical side &hellip; <code>Thesis*</code> - 3rd generation consensus
+stuff, Ethereum contributor.</p>
 
-<p>In bitcoin and Ethereum you can send funds from one account to another.
-This activity is captured in a transaction.</p>
-
-<p>In this assignment we are going to add transactions to our blockchain.</p>
-
-<p>You will need to implement code in <code>../03/bsvr/cli/cli.go</code> starting at
-line 185.  The function is <code>func (cc *CLI) SendFundsTransaction(</code>.</p>
-
-<p>Side Note: notice how line continuation works in go with the
-declaration of the function.</p>
-
-<p>The function calls
-<code>cc.InstructorSendFundsTransaction</code> remove that. That is the
-instructors version of the code (The answer that I implemented).</p>
-
-<p>Work through the pseudo code and implement the transaction.</p>
-
-<p>Basically a transaction is finding all the outputs for an account
-that do not have any corresponding  input.  These are the unused
-outputs that represent the value of the account.   Fortunately
-we have an index that tells us where to find these.  Verify that
-there is sufficient funds in the account then create inputs for
-our new block/new transaction that collects all of the funds.
-Given that we have the <code>sum</code> of the funds, now create 1 or 2
-output transactions.  First a transaction output to the destination
-<code>to</code> account.  If the amount of the funds is larger than the
-transferred amount then some &ldquo;change&rdquo; is owed back to the &ldquo;from&rdquo;
-account.  If &ldquo;change&rdquo; is needed then create a transaction output
-with the &ldquo;change&rdquo;.</p>
-
-<p>The pseudo code is in a comment in the file <code>.../cli/cli.go</code> and it
-is reproduced below.</p>
-
-<pre><code>	//
-	// Pseudo Code:
-	// 1. Calcualte the total value of the account 'from'.  Call
-	//    this 'tot'.  You can do this by calling
-	//    `cc.GetTotalValueForAccount(from)`.
-	// 2. If the total, `tot` is less than the amount that is to be
-	//    transfered, `amount` then fail.  Return an error
-	//	  &quot;Insufficient funds&quot;.  The person is trying to bounce
-	//    a check.
-	// 3. Get the list of output tranactions.
-	//    Look in the file `.../transaactions/tx.go` for the
-	//    TxOutputType.  These need to be collected so that you.
-	//    Call this 'oldOutputs'.
-	// 4. Find the set of values that are pointed to in the index. 
-	//    These are the values for the 'from' account.  Delete this
-	//    from the index.  These are the values that have been spent.
-	//    ((( To delete from the index use the from value.  Convert it
-	//		to a stirng (the key for the index
-	//		cc.BlockIndex.FindValue.AddrIndex  is a string.
-	//		Then use the builtin &quot;delete&quot; to remove this entire key.
-	//		&quot;delete(cc.BlockIndex.FindValue.AddrIndex, fromConvertedToString)
-	//		You may have to check that the key exists in the &quot;AddrIndex&quot; 
-	//		first ))))
-	// 5. Create a new empty transaction.  Call `transctions.NewEmptyTx`
-	//    to create. Pass in the 'memo' and the 'from' for this
-	//    tranaction.
-	// 6. Convert the 'oldOutputs' into a set of new inputs.  The
-	//    type is `../transctions/tx.go` `TxInputType`.  Call
-	//    `transactions.CreateTxInputsFromOldOutputs` to do this.
-	// 7. Save the new inputs in the tx.Input.
-	// 8. Create the new output for the 'to' address.  Call
-	//    `transactions.CreateTxOutputWithFunds`.  Call this `txOut`.   
-	//    Take `txOut` and append it to the tranaction by calling
-	//    `transactions.AppendTxOutputToTx`.
-	// 9. Calcualte the amount of &quot;change&quot; - if it is larger than 0 then
-	//    we owe 'from' change.  Create a 2nd tranaction with the change.
-	//    Append to the tranaction the `TxOutputType`.
-	// 10. Return
-	//
-</code></pre>
-
-<h2>Steps that you will want to use</h2>
-
-<p>First you need to get the main program in <code>.../03/bsvr/main</code> to compile.  This means having
-the solution to assignment 3 in the <code>.../03/bsvr/merkle</code> directory.   Also you will need to
-fix <code>.../03/bsvr/cli.go</code> around line 190 to <code>return</code> and take out the code that is
-incomplete.  Go to the <code>.../03/bsvr/main</code> directory and:</p>
-
-<pre><code>	go build
-</code></pre>
-
-<p>You should end up with a <code>main</code> program or <code>main.exe</code> to run.</p>
-
-<p>Now you need to have a genesis block.  The code for this is already built.  You just have
-to run it.  In the <code>main</code> directory run:</p>
-
-<pre><code>	./main --create-genesis
-</code></pre>
-
-<p>This should create a directory <code>.../03/bsvr/main/data</code> with 2 files in it.  The file are
-in JSON format.  You should be able to edit the files with a text editor (vi or vim
-for example) and take a look at them.   The file with the long name (it is the
-hash of the block) is the first block in the chain.  This is the &ldquo;genesis&rdquo; block.
-A bunch of accounts have been created with 50000 tokens each.  The other file is
-<code>index.json</code>.  It is our index to finding stuff in the set of blocks.  Take a
-look at both files.</p>
-
-<p>If you need to run <code>./main --create-genesis</code> again (so that you are starting over
-with a fresh chain) then you will need to manually delete all the files in the
-<code>.../03/bsvr/main/data</code> directory.   I had to do this a bunch of times before I got
-the transaction code to work.</p>
-
-<h3>Other commands that are useful.</h3>
-
-<p>You can take a look at the accounts that have been created with:</p>
-
-<pre><code>	./main --list-accounts
-</code></pre>
-
-<p>and you can find out how much funds are in an account with:</p>
-
-<pre><code>	./main --show-balance 0x00000SomeAccountNumber
-</code></pre>
-
-<p>When you start out you should have a bunch of accounts with 500000
-tokens in each account.  The account numbers should look familiar.
-They are specified in the <code>./main/cfg.json</code> file and match with
-the accounts that Sasha emailed out.</p>
-
-<h3>Search for Code</h3>
-
-<p>Go and find all the stuff that already exists.</p>
+<h2>How Proof of Work works.</h2>
 
 <ol>
-<li>in <code>.../03/bsvr/cli/cli.go</code> look for:
+<li>Create the Merkle hash of the block.  This grantees integrity within a block.</li>
+<li>Set the Nonce for the block to 0.</li>
+<li>Hash the block (sha1, Keack256 or other hash)</li>
+<li>See if it satisfies the &ldquo;criteria&rdquo; - Example.</li>
+<li>If &ldquo;good&rdquo; - then done, else
 
-<ol>
-<li>GetTotalValueForAccount(acct)</li>
-<li>GetNonZeroForAccount(acct)</li>
-</ol></li>
-<li>in <code>.../03/bsvr/transactions/tx.go</code> look for:
-
-<ol>
-<li>NewEmptyTx(memo, acct)</li>
-<li>CreateTxInputsFromOldOutputs(oldOutputs)</li>
-<li>CreateTxOutputWithFunds(acct, amount)</li>
-<li>AppendTxOutputToTx(txToAppendTo, newTxOutputs)</li>
-</ol></li>
-<li>Look at how the index is stored in <code>.../03/bsvr/main/data/index.json</code> and how this
-is stored in memory.  Look at <code>.../03/bsvr/index/index.go</code>.</li>
-<li>Assume that the author is not so good at writing comments.  Add your own notes.  Look at test cases and
-see how stuff works.   Add your own test cases.  Add print statements to the code to see how things work.</li>
+<ul>
+<li>Nonce = Nonce + 1</li>
+<li>Loop back to (3) above.</li>
+</ul></li>
 </ol>
+
+<h2>How Proof of Stake Works creates consensus.</h2>
+
+<p>By using up time and work - it spends $ and hardware - taking time.  Anybody that want&rsquo;s to fake will have
+to do this.  Cost is millions an hour.</p>
+
+<h2>Bad Data is still bad data.</h2>
+
+<p>Can we input bad data.  Yes&hellip; but the data becomes &ldquo;checkable&rdquo;.  Example of supply chain with aircraft parts.</p>
+
+<h2>Limitations on Bad Data.</h2>
+
+<p>Accounting and bad data.</p>
+
+<h2>Immutable Data.</h2>
+
+<p>Why is the data immutable.  Block after block with links over time as hashes.</p>
+
+<h2>Shared Data.</h2>
+
+<p>Sharing the data.  How that works.</p>
+
+<h2>Proof of Stake (Proof-of-Steak)</h2>
+
+<p>Why Proof of Stake - security v.s. speed.</p>
+
+<p>What is a side-chain.</p>
+
+<p>What is sharding.</p>
+
+<h2>Environmental Considerations / Performance Considerations</h2>
+
+<p>PoW is an environmental and performance disaster.  Crypto Kitties.</p>
+
+<h2>Ethereum v.2.0.0 announcement</h2>
+
+<p>Eth will require a 32 Eth stake.  Eth burnt on main Eth 1.x net, then minted on Eth2.0 net - in an Escrow account.</p>
+
+<h2>Ripple/Thesis (Other Consensus Algorithms)</h2>
+
+<p>3rd generation Byzantine Generals Solution - Honey Badger BGS.  Overview of how it works.</p>
+
+<h2>Non-Blockchain Consensus</h2>
+
+<p>Fast proof of authority data.</p>
 
 </div>
 

@@ -1,3 +1,7 @@
+# Homework 3 - transactions
+
+Due Mar 4th.
+
 Transactions
 -------------------------------
 
@@ -8,7 +12,7 @@ This activity is captured in a transaction.
 In this assignment we are going to add transactions to our blockchain.
 
 You will need to implement code in `../03/bsvr/cli/cli.go` starting at
-line 183.  The function is `func (cc *CLI) SendFundsTransaction(`.
+line 185.  The function is `func (cc *CLI) SendFundsTransaction(`.
 
 Side Note: notice how line continuation works in go with the
 declaration of the function.
